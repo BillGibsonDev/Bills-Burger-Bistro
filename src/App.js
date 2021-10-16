@@ -22,15 +22,15 @@ function App() {
 
       <Switch>
 
-      <Route to="/" exact>
+      <Route path="/" exact>
         <HomePage />
       </Route>
       
-      <Route to="/AboutPage" exact>
+      <Route path="/AboutPage" exact>
         <AboutPage />
       </Route>
 
-      <Route to="/OrderPage" exact>
+      <Route path="/OrderPage" exact>
         <OrderPage />
       </Route>
 
