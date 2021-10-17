@@ -50,7 +50,7 @@ align-items: center;
             border-radius: 8px;
             padding: 0 12px;
             &:hover{
-                background: black;
+                background: #313131;
                 transition: 0.3s;
             }
         }
