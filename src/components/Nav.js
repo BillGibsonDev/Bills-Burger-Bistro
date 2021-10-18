@@ -34,7 +34,7 @@ align-items: center;
     nav{
         display: flex;
         justify-content: space-between;
-        width: 35%;
+        width: 45%;
         a {
             font-size: 1.5em;
             color: white;

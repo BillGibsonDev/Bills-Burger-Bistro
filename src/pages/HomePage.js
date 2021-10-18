@@ -1,4 +1,7 @@
 
+// components
+//import SlideShow from "../components/SlideShow";
+
 // styled
 import styled from "styled-components"
 
@@ -7,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 // images
 import Hamburger from '../images/hamburger.jpg';
-import Slider1 from '../images/sliderImage1.jpg';
+
 
 export default function HomePage() {
     return (
@@ -25,15 +28,6 @@ export default function HomePage() {
                     <h2>Bill's Burger Bistro</h2>
                     <h4>We pride ourselves bringing our customers delish, gourmet burgers</h4>
                 </div>
-            </div>
-            <div className="image-gallery">
-                <div className="slide">
-                    <div className="slide-text-container">
-                        <Link to="/OrderNow">Order</Link>
-                    </div>
-                    <img src={Slider1} alt="" />
-                </div>
-
             </div>
         </StyledHome>
     )
@@ -110,21 +104,5 @@ flex-direction: column;
                 margin: 0 auto;
             }
         }
-    }
-    .image-gallery{
-        
-        .slide{
-            display: flex;
-            .slide-text-container{
-                height: 100%;
-                width: 50%;
-                background: lightcoral;
-            }
-            img{
-                height: 100%;
-                width: 50%;
-            }
-        }
-        
-    }
+    } 
 `;
