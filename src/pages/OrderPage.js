@@ -3,22 +3,24 @@
 import styled from "styled-components"
 
 // buns
-import BottomBun from '../itemImages/bottomBun.png';
-import TopBun from '../itemImages/topbun.png';
+import BottomBun from '../itemImages/buns/bottomBunWhite.png';
+import TopBun from '../itemImages/buns/topBunWhite.png';
 
 // meat
-import Hamburger from '../itemImages/hamburger.png';
+import Hamburger from '../itemImages/meat/hamburger.png';
 
 
 // bevs
-import Pepsi from '../itemImages/pepsiBottle.png';
-import Sprite from '../itemImages/sprite.png';
-import RootBeer from '../itemImages/rootBeer.png';
+import Pepsi from '../itemImages/beverages/pepsiBottle.png';
+import Sprite from '../itemImages/beverages/sprite.png';
+import RootBeer from '../itemImages/beverages/rootBeer.png';
 // sides
-import Chips from '../itemImages/chips.png';
-import Fries from '../itemImages/fries.png';
-import Cole from '../itemImages/cole.png';
+import Chips from '../itemImages/sides/chips.png';
+import Fries from '../itemImages/sides/fries.png';
+import Cole from '../itemImages/sides/cole.png';
+
 // toppings
+import American from '../itemImages/toppings/triangle.png';
 
 // condiments
 
@@ -173,25 +175,40 @@ export default function OrderPage() {
                 <div className="tabContent" id="Buns">
                     <h1>Pick your Bun!</h1>
                     <label>White
-                        <input type="radio" name="White" id="White" onClick={(e) =>{showBun(e, "white")}}/>
+                        <input type="checkbox" name="White" id="White" onClick={(e) =>{showBun(e, "white")}}/>
                     </label>
                     <label>Wheat
-                        <input type="radio" name="Wheat" id="Wheat" onClick={(e) =>{showBun(e, "wheat")}}/>
+                        <input type="checkbox" name="Wheat" id="Wheat" onClick={(e) =>{showBun(e, "wheat")}}/>
                     </label>
                     <label>Brioche
-                        <input type="radio" name="Brioche" id="Brioche" onClick={(e) =>{showBun(e, "brioche")}}/>
+                        <input type="checkbox" name="Brioche" id="Brioche" onClick={(e) =>{showBun(e, "brioche")}}/>
                     </label>
                 </div>
                 <div className="tabContent" id="Meat">
                     <h1>Choose your Meat!</h1>
                     <label>Hamburger
-                        <input type="radio" name="Hamburger" id="Hamburger" onClick={(e) =>{showMeat(e, "hamburger")}}/>
+                        <input type="checkbox" name="Hamburger" id="Hamburger" onClick={(e) =>{showMeat(e, "hamburger")}}/>
                     </label>
                     <label>Turkey Burger
-                        <input type="radio" name="Turkey" id="Turkey" />
+                        <input type="checkbox" name="Turkey" id="Turkey" />
                     </label>
                     <label>Chicken Cutlet
-                        <input type="radio" name="Chicken" id="Chicken" />
+                        <input type="checkbox" name="Chicken" id="Chicken" />
+                    </label>
+                </div>
+                <div className="tabContent" id="Condiments">
+                    <h1>Add Condiments!</h1>
+                    <label>Ketchup
+                        <input type="checkbox" name="Ketchup" id="Ketchup" />
+                    </label>
+                    <label>Mustard
+                        <input type="checkbox" name="Mustard" id="Mustard" />
+                    </label>
+                    <label>Mayo
+                        <input type="checkbox" name="Mayo" id="Mayo" />
+                    </label>
+                    <label>BBQ Sauce
+                        <input type="checkbox" name="BBQ" id="BBQ" />
                     </label>
                 </div>
                 <div className="tabContent" id="Toppings">
@@ -208,20 +225,8 @@ export default function OrderPage() {
                     <label>Bacon
                         <input type="radio" name="Bacon" id="Bacon" />
                     </label>
-                </div>
-                <div className="tabContent" id="Condiments">
-                    <h1>Add Condiments!</h1>
-                    <label>Ketchup
-                        <input type="radio" name="Ketchup" id="Ketchup" />
-                    </label>
-                    <label>Mustard
-                        <input type="radio" name="Mustard" id="Mustard" />
-                    </label>
-                    <label>Mayo
-                        <input type="radio" name="Mayo" id="Mayo" />
-                    </label>
-                    <label>BBQ Sauce
-                        <input type="radio" name="BBQ" id="BBQ" />
+                    <label>American Cheese
+                        <input type="radio" name="American" id="American" onClick={(e) =>{showTopping(e, "american")}}/>
                     </label>
                 </div>
                 <div className="tabContent" id="Sides">
@@ -259,11 +264,11 @@ export default function OrderPage() {
                     <div className="top-buns">
                         <img className="bunChoice white" src={TopBun} id="white" alt="" />
                     </div>
-                    <div className="toppings">
-
-                    </div>
                     <div className="condiments">
 
+                    </div>
+                    <div className="toppings">
+                        <img src={American} className="toppingChoice"  id="american" alt="" />
                     </div>
                     <div className="meats">
                         <img  className="meatChoice" src={Hamburger} id="hamburger" alt="" />
@@ -284,6 +289,7 @@ export default function OrderPage() {
 
 const StyledOrderPage = styled.div`
 display: flex;
+flex-direction: column;
     .create-container{
         width: 50%;
         h1 {
@@ -332,17 +338,56 @@ display: flex;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        img{
+            display: none;
+            width: 450px;
+            height: 150px;
+        }
+        .sides{
+            .sideChoice{
+                height: 200px;
+            }
+        }
         .burger{
             display: flex;
             flex-direction: column;
-        }
-        img{
-            display: none;
-            width: 150px;
-            height: 350px;
-        }
-        .sideChoice{
-            height: 200px;
+            position: relative;
+            .top-buns{
+                .bunChoice{
+                    display: none;
+                    height: 100px;
+                    position: relative;
+                    bottom: -60px;
+                    z-index: 4;
+                }
+            }
+
+            .toppings{
+                position: relative;
+                bottom: -60px;
+                .toppingChoice{
+                    position: relative;
+                    height: 40px;
+                    z-index: 3;
+                }
+            }
+            .meats{
+                .meatChoice {
+                    display: none;
+                    height: 100px;
+                    position: relative;
+                    bottom: -10px;
+                    z-index: 2;
+                }
+            }
+            .bottom-buns{
+                .bunChoice{
+                    display: none;
+                    height: 100px;
+                    position: relative;
+                }
+            }
         }
     }
 `;
